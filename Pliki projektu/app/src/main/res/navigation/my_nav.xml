@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/homePage">
+
+    <fragment
+        android:id="@+id/homePage"
+        android:name="com.example.foodorderingapp.fragments.HomePage"
+        android:label="fragment_home_page"
+        tools:layout="@layout/fragment_home_page" >
+        <action
+            android:id="@+id/action_homePage_to_cathegoriesList"
+            app:destination="@id/cathegoriesList"
+            app:enterAnim="@anim/in_right_to_left"
+            app:exitAnim="@anim/out_right_to_left"
+            app:popEnterAnim="@anim/in_left_to_right"
+            app:popExitAnim="@anim/out_left_to_right" >
+        <argument
+            android:name="IsOrder"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        </action>
+        <action
+            android:id="@+id/action_homePage_to_deliveryOrTakeoutChoice"
+            app:destination="@id/deliveryOrTakeoutChoice"
+            app:enterAnim="@anim/in_right_to_left"
+            app:exitAnim="@anim/out_right_to_left"
+            app:popEnterAnim="@anim/in_left_to_right"
+            app:popExitAnim="@anim/out_left_to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/cathegoriesList"
+        android:name="com.example.foodorderingapp.fragments.CategoriesList"
+        android:label="fragment_cathegories_list"
+        tools:layout="@layout/fragment_cathegories_list" >
+        <action
+            android:id="@+id/action_cathegoriesList_to_productsList"
+            app:destination="@id/productsList"
+            app:enterAnim="@anim/in_right_to_left"
+            app:exitAnim="@anim/out_right_to_left"
+            app:popEnterAnim="@anim/in_left_to_right"
+            app:popExitAnim="@anim/out_left_to_right" />
+        <argument
+            android:name="isAnOrder"
+            app:argType="boolean"
+            android:defaultValue="false" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/deliveryOrTakeoutChoice"
+        android:name="com.example.foodorderingapp.DeliveryOrTakeoutChoice"
+        android:label="fragment_delivery_or_takeout_choice"
+        tools:layout="@layout/fragment_delivery_or_takeout_choice" >
+        <action
+            android:id="@+id/action_deliveryOrTakeoutChoice_to_takeawayOption"
+            app:destination="@id/takeawayOption"
+            app:enterAnim="@anim/in_right_to_left"
+            app:exitAnim="@anim/out_right_to_left"
+            app:popEnterAnim="@anim/in_left_to_right"
+            app:popExitAnim="@anim/out_left_to_right" />
+        <action
+            android:id="@+id/action_deliveryOrTakeoutChoice_to_deliveryOption"
+            app:destination="@id/deliveryOption"
+            app:enterAnim="@anim/in_right_to_left"
+            app:exitAnim="@anim/out_right_to_left"
+            app:popEnterAnim="@anim/in_left_to_right"
+            app:popExitAnim="@anim/out_left_to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/takeawayOption"
+        android:name="com.example.foodorderingapp.TakeawayOption"
+        android:label="fragment_takeaway_option"
+        tools:layout="@layout/fragment_takeaway_option" >
+        <action
+            android:id="@+id/action_takeawayOption_to_cathegoriesList"
+            app:destination="@id/cathegoriesList"
+            app:enterAnim="@anim/in_right_to_left"
+            app:exitAnim="@anim/out_right_to_left"
+            app:popEnterAnim="@anim/in_left_to_right"
+            app:popExitAnim="@anim/out_left_to_right" >
+        <argument
+            android:name="isAnOrder"
+            app:argType="boolean"
+            android:defaultValue="true" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/deliveryOption"
+        android:name="com.example.foodorderingapp.DeliveryOption"
+        android:label="fragment_delivery_option"
+        tools:layout="@layout/fragment_delivery_option">
+        <action
+            android:id="@+id/action_deliveryOption_to_cathegoriesList"
+            app:destination="@id/cathegoriesList"
+            app:enterAnim="@anim/in_right_to_left"
+            app:exitAnim="@anim/out_right_to_left"
+            app:popEnterAnim="@anim/in_left_to_right"
+            app:popExitAnim="@anim/out_left_to_right" >
+        <argument
+            android:name="IsOrder"
+            app:argType="boolean"
+            android:defaultValue="true" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/productsList"
+        android:name="com.example.foodorderingapp.fragments.ProductsList"
+        android:label="fragment_products_list"
+        tools:layout="@layout/fragment_products_list">
+        <argument
+            android:name="isOrder"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="category"
+            app:argType="com.example.foodorderingapp.model.Category" />
+        <action
+            android:id="@+id/action_productsList_to_shoppingCart"
+            app:destination="@id/shoppingCart"
+            app:enterAnim="@anim/in_right_to_left"
+            app:exitAnim="@anim/out_right_to_left"
+            app:popEnterAnim="@anim/in_left_to_right"
+            app:popExitAnim="@anim/out_left_to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoppingCart"
+        android:name="com.example.foodorderingapp.fragments.ShoppingCart"
+        android:label="fragment_shopping_cart"
+        tools:layout="@layout/fragment_shopping_cart"/>
+</navigation>
